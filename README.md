@@ -1,2 +1,2 @@
 # gordonTuribamwe
-Personal Website
+Personal Website to showcase my work and articles
