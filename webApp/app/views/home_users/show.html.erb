@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h2>This is the title</h2>
+<%= @home_user.name %> <%= link_to 'Edit', edit_home_user_path(@home_user) %>
+<p></p>
+<hr>
+<% if !@pix.nil? %>
+<%= image_tag @pix.image.url(:large) %>
+<% end %>
+<%= pix(@pix) %>
+<hr>
+<% if !@intro.nil? %>
+<h3> This is the INtro</h3>
+<%= @intro.intro %> <%= link_to 'Edit', edit_home_user_intro_path(@home_user, @intro) %>
+<% else %>
+<%= link_to "Add Intro", new_home_user_intro_path(@home_user) %>
+<% end %>
+<p></p>
+<hr>
+<h3> This the buttons</h3>
+<% @buttons.each do |button| %>
+	<%= button.name %> | <%= button.url %> <%= link_to "Edit", edit_home_user_button_path(@home_user, button) %> | <%= link_to "Delete", home_user_button_path(@home_user, button), method: :delete, data: { confirm: 'Are you sure?'} %> <br>
+<% end %> <br>
+
+<%= buttons(@buttons) %>
+
+
+
