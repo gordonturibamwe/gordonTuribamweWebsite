@@ -24,7 +24,7 @@ class HomeUsersController < ApplicationController
 
     respond_to do |format|
       if @home_user.save
-        format.html { redirect_to new_home_user_path(@home_user), notice: 'Home user was successfully created.' }
+        format.html { redirect_to home_user_path(@home_user), notice: 'Home user was successfully created.' }
       else
         format.html { render :new }
       end

@@ -1,27 +1,81 @@
-<p id="notice"><%= notice %></p>
-<h2>This is the title</h2>
-<%= @home_user.name %> <%= link_to 'Edit', edit_home_user_path(@home_user) %>
-<p></p>
-<hr>
-<% if !@pix.nil? %>
-<%= image_tag @pix.image.url(:large) %>
-<% end %>
-<%= pix(@pix) %>
-<hr>
-<% if !@intro.nil? %>
-<h3> This is the INtro</h3>
-<%= @intro.intro %> <%= link_to 'Edit', edit_home_user_intro_path(@home_user, @intro) %>
-<% else %>
-<%= link_to "Add Intro", new_home_user_intro_path(@home_user) %>
-<% end %>
-<p></p>
-<hr>
-<h3> This the buttons</h3>
-<% @buttons.each do |button| %>
-	<%= button.name %> | <%= button.url %> <%= link_to "Edit", edit_home_user_button_path(@home_user, button) %> | <%= link_to "Delete", home_user_button_path(@home_user, button), method: :delete, data: { confirm: 'Are you sure?'} %> <br>
-<% end %> <br>
 
-<%= buttons(@buttons) %>
+<!-- HOME IMAGE STARTS -->
+	<!-- edit home image starts -->
+	<div class="row top10">
+		<div class="col-md-8 text-right"></div>
+		<div class="col-md-4 text-right">
+			<%= pix(@pix) %>
+		</div>
+	</div>
+	<!-- edit home image end -->
+
+	<!-- home image starts -->
+	<div class="row top10">
+		<div class="col-md-12"> 
+			<% if !@pix.nil? %>
+			<%= image_tag @pix.image.url(:large), class: "img-responsive", alt: "Gordon Turibamwe" %> 
+			<% end %>
+		</div>
+	</div>
+	<!-- edit home image ends -->
+<!-- HOME IMAGE ENDS -->
+
+
+
+<!-- HOME INTRODUCTION STARTS -->
+	<div class="row top15">
+		<!-- Edit home introduction starts -->
+		<div class="col-md-12">
+			<div class="row top10">
+				<div class="col-md-8 text-right"></div>
+				<div class="col-md-4 text-right">
+					<%= intro(@intro) %>
+				</div>
+			</div>
+			<!-- Edit home introduction ends -->
+			
+			<!-- home introduction starts -->
+			<h3 class="text-center introduction"> 
+				<% if !@intro.nil? %>
+				<%= @intro.intro %> 
+				<% end %>
+			</h3>
+			<!-- home introduction ends -->
+		</div>
+	</div>
+<!-- HOME INTRODUCTION STARTS -->
+
+
+
+<!-- HOME BUTTONS STARTS -->
+	<div class="row top30">
+		<div class="col-md-12 text-right">
+			<%= buttons(@buttons) %>
+		</div>
+		<% @buttons.each do |button| %>
+			<% if count_buttons(@buttons) == 3 %>
+				<div class="col-md-4 top5">
+					<%= link_to "Edit", edit_home_user_button_path(@home_user, button), class: "label label-warning" %> <%= link_to "Delete", home_user_button_path(@home_user, button), method: :delete, data: { confirm: 'Are you sure?'}, class: "label label-danger" %> <br>
+					<%= link_to "#{button.name}", "http://#{button.url}", target:"_blank", class: "btn btn-default btn-lg btn-bold top5" %> 
+				</div>
+			<% elsif count_buttons(@buttons) == 2 %>
+				<div class="col-md-6 top5">
+					<%= link_to "Edit", edit_home_user_button_path(@home_user, button), class: "label label-warning" %> <%= link_to "Delete", home_user_button_path(@home_user, button), method: :delete, data: { confirm: 'Are you sure?'}, class: "label label-danger" %> <br>
+					<%= link_to "#{button.name}", "http://#{button.url}", target:"_blank", class: "btn btn-default btn-lg btn-bold top5" %> 
+				</div>
+			<% else %>
+				<div class="col-md-12 top5">
+					<%= link_to "Edit", edit_home_user_button_path(@home_user, button), class: "label label-warning" %> <%= link_to "Delete", home_user_button_path(@home_user, button), method: :delete, data: { confirm: 'Are you sure?'}, class: "label label-danger" %> <br>
+					<%= link_to "#{button.name}", "http://#{button.url}", target:"_blank", class: "btn btn-default btn-lg btn-bold top5" %> 
+				</div>
+			<% end %>
+		<% end %> 
+	</div>
+<!-- HOME BUTTONS STARTS -->
+
+
+
+
 
 
 

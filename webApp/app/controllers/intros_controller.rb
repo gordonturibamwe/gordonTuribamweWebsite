@@ -26,7 +26,7 @@ class IntrosController < ApplicationController
 
     respond_to do |format|
       if @intro.save
-        format.html { redirect_to root_path, notice: 'Intro was successfully created.' }
+        format.html { redirect_to home_user_path(@home_user), notice: 'Intro was successfully created.' }
       else
         format.html { render :new }
       end
