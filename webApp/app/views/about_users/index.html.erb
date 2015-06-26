@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing About Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @about_users.each do |about_user| %>
+      <tr>
+        <td><%= about_user.name %></td>
+        <td><%= link_to 'Show', about_user %></td>
+        <td><%= link_to 'Edit', edit_about_user_path(about_user) %></td>
+        <td><%= link_to 'Destroy', about_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About user', new_about_user_path %>
