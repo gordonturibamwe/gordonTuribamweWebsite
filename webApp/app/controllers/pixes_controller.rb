@@ -9,9 +9,24 @@ class PixesController < ApplicationController
   end
 
   def new
-    @home_user = HomeUser.find(params[:home_user_id])
-    @pix = @home_user.build_pix
+    @p = params.has_key?(:home_user_id)
+    if @p
+      @home_user = HomeUser.find(params[:home_user_id])
+      @pix = @home_user.build_pix
+    else
+      @about_user = AboutUser.find_by(params[:id])
+      @work = Work.find_by(params[:id])
+      @portfolio = Portfolio.find_by(params[:id])
+      @pix = @portfolio.pixes.build
+    end
   end
+
+  # def new_portfolio
+  #   @about_user = AboutUser.find(params[:id])
+  #   @work = Work.find(params[:id])
+  #   @portfolio = Portfolio.find(params[:id])
+  #   # @pix = @portfolio.pixes.build
+  # end
 
   def edit
     @home_user = HomeUser.find(params[:home_user_id])
@@ -19,6 +34,35 @@ class PixesController < ApplicationController
   end
 
   def create
+    @p = params.has_key?(:home_user_id)
+    if @p
+      @home_user = HomeUser.find(params[:home_user_id])
+      @pix = @home_user.build_pix(pix_params)
+
+      respond_to do |format|
+        if @pix.save
+          format.html { redirect_to home_user_path(@home_user), notice: 'Pix was successfully created.' }
+        else
+          format.html { render :new }
+        end
+      end
+      return
+    else
+      @about_user = AboutUser.find_by(params[:id])
+      @work = Work.find_by(params[:id])
+      @portfolio = Portfolio.find_by(params[:id])
+      @pix = @portfolio.pixes.build(pix_params)
+
+      respond_to do |format|
+        if @pix.save
+          format.html { redirect_to about_user_work_portfolio_path(@about_user, @work, @portfolio), notice: 'Pix was successfully created.' }
+        else
+          format.html { render :new }
+        end
+      end
+    end
+
+
     @home_user = HomeUser.find(params[:home_user_id])
     @pix = @home_user.build_pix(pix_params)
 
@@ -56,6 +100,6 @@ class PixesController < ApplicationController
     end
 
     def pix_params
-      params.require(:pix).permit(:name, :caption, :home_user_id, :image)
+      params.require(:pix).permit(:name, :caption, :home_user_id, :image, :portfolio_id)
     end
 end

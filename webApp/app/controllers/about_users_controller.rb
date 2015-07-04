@@ -8,6 +8,9 @@ class AboutUsersController < ApplicationController
   def show
     @about_user = set_about_user
     @contact = @about_user.contact
+    @works = @about_user.works
+    @educations = @about_user.educations
+    @skill = @about_user.skill
   end
 
   def new

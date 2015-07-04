@@ -1,0 +1,21 @@
+        <div class="row top30">
+          <div class="col-md-12">
+            <h2>Portfolio <small>- ccc</small></h2>
+            <p> Nulla eu efficitur velit. Fusce ultrices scelerisque sem, nec ultrices nisi bibendum ut. Mauris arcu velit, convallis vel tincidunt ut, molestie quis eros. Curabitur a pretium massa. Pellentesque sapien ligula, aliquam a congue at, scelerisque in eros. Pellentesque quis diam sollicitudin, aliquet lacus et, molestie nisl. Aliquam tincidunt, ex a tempor luctus, velit purus imperdiet velit, at efficitur felis massa a est. <p>
+            <hr>
+          </div> 
+        </div>
+
+        <!-- experience block -->
+        <div class="row">
+          <% @pixes.each do |pix| %>
+            <div class="col-md-4"> <%= image_tag pix.image.url(:large), class: "img-responsive", alt: "Gordon Turibamwe" %> </div>
+            
+<!--             <div class="col-md-4"> <a href="#"> <img src="http://turibamwe.me/wp-content/uploads/2014/11/21.png" class="crop" alt="Cinque Terre"> </a> </div>
+            <div class="col-md-4"> <a href="#"> <img src="http://turibamwe.me/wp-content/uploads/2014/12/22.jpg" class="crop" alt="Cinque Terre"> </a> </div>
+            <div class="col-md-4"> <a href="#"> <img src="http://turibamwe.me/wp-content/uploads/2014/11/2.png" class="crop" alt="Cinque Terre"> </a> </div>
+            <div class="col-md-4"> <a href="#"> <img src="http://turibamwe.me/wp-content/uploads/2014/11/22.png" class="crop" alt="Cinque Terre"> </a> </div>
+            <div class="col-md-4"> <a href="#"> <img src="http://turibamwe.me/wp-content/uploads/2014/12/f_4.jpg" class="crop" alt="Cinque Terre"> </a> </div> -->
+          <% end %>
+          <%= @grouped_pixes %>
+        </div>

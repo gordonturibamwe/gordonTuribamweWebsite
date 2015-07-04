@@ -1,0 +1,43 @@
+<%= form_for([@about_user, @work]) do |f| %>
+  <% if @work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+      <% @work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-md-12">
+    <%= f.text_field :title, class: "form-control", placeholder: "Work Title, Position", autofocus: true %>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.text_field :company, class: "form-control", placeholder: "Company Name" %>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="start">Start Year:</label> <br>
+    <%= f.date_select :start, start_year: 1980, class: "form-control" %>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="start">End Year:</label> <br>
+    <%= f.date_select :end, start_year: 1980, class: "form-control" %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.text_area :description, class: "form-control", size: "30x10", placeholder: "Work Description" %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.text_field :link, class: "form-control", placeholder: "Link to the work place or website" %>
+  </div>
+  <div class="form-group col-md-12">
+    <hr>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.submit "Save", class: "btn btn-primary btn-md" %>
+  </div>
+<% end %>

@@ -8,4 +8,5 @@ class Pix < ActiveRecord::Base
 	# end
 
 	belongs_to :home_user
+	belongs_to :portfolio
 end

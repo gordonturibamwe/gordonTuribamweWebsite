@@ -1,0 +1,32 @@
+<%= form_for([@about_user, @work, @portfolio]) do |f| %>
+  <% if @portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+      <ul>
+      <% @portfolio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-md-12">
+    <%= f.text_field :title, class: "form-control", placeholder: "Work Title / Name", autofocus: true  %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.date_select :when, class: "form-control", placeholder: "Date" %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.text_area :description, class: "form-control", size: "30x10", placeholder: "Work Description" %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.text_field :link, class: "form-control", placeholder: "Link / URL - www.google.com" %>
+  </div>
+  <div class="form-group col-md-12">
+    <hr>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.submit "Save", class: "btn btn-primary btn-md" %>
+  </div>
+<% end %>

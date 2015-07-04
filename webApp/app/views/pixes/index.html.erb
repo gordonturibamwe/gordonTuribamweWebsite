@@ -18,9 +18,9 @@
         <td><%= pix.name %></td>
         <td><%= pix.caption %></td>
         <td><%= pix.home_user %></td>
-        <td><%= link_to 'Show', pix %></td>
-        <td><%= link_to 'Edit', edit_pix_path(pix) %></td>
-        <td><%= link_to 'Destroy', pix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', pix %></td>
+        <td><%#= link_to 'Edit', edit_pix_path(pix) %></td>
+        <td><%#= link_to 'Destroy', pix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Pix', new_pix_path %>
+<%#= link_to 'New Pix', new_pix_path %>

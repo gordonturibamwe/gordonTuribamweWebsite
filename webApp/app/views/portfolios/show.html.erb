@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+      <div class="row top30">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12 text-left">
+              <%= link_to "Edit", edit_about_user_work_portfolio_path(@about_user, @work, @portfolio), class: "label label-warning" %>
+              <%= link_to "Delete", about_user_work_portfolio_path(@about_user, @work, @portfolio), method: :delete, data: {confirm: "Are you sure?"}, class: "label label-danger" %>
+            </div> </div>
+
+            <h2><%= @portfolio.title %> <small> <%= @portfolio.when.month %>-<%= @portfolio.when.year %> </small></h2>
+            <p> <%= @portfolio.description %> <p>
+            <hr>
+          </div> 
+      </div> 
+
+      <!-- experience block -->
+      <div class="row">
+        <div class="col-md-12 full-image">
+          <%= link_to "Add Portfolio Image", new_about_user_work_portfolio_pix_path(@about_user, @work, @portfolio), class: "label label-success" %>
+          <p></p>
+          <% @pixes.each do |pix| %>
+            <%= image_tag pix.image.url(:large), class: "img-responsive", alt: "Gordon Turibamwe" %> 
+            <hr>
+          <% end %>
+        </div>
+      </div>
+      <!-- experience block -->
+
+
