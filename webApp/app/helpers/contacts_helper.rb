@@ -3,7 +3,7 @@ module ContactsHelper
 	def contact1(text)
 		text = @about_user.contact
 		if text.nil?
-			link_to "Add Contact", new_about_user_contact_path(@about_user), class: "label label-success"
+			link_to "Add Contact", new_about_user_contact_path(@about_user), class: "btn btn-default btn-sm btn-success"
 		else
 			link_to 'Edit Contact', edit_about_user_contact_path(@about_user, @contact), class: "label label-warning" 
 		end

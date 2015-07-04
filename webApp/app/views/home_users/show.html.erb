@@ -2,9 +2,10 @@
 <!-- HOME IMAGE STARTS -->
 	<!-- edit home image starts -->
 	<div class="row top10">
-		<div class="col-md-8 text-right"></div>
-		<div class="col-md-4 text-right">
+		<div class="col-md-4 text-left">
 			<%= pix(@pix) %>
+		</div>
+		<div class="col-md-8 text-right">
 		</div>
 	</div>
 	<!-- edit home image end -->
@@ -13,7 +14,7 @@
 	<div class="row top10">
 		<div class="col-md-12"> 
 			<% if !@pix.nil? %>
-			<%= image_tag @pix.image.url(:large), class: "img-responsive", alt: "Gordon Turibamwe" %> 
+				<%= image_tag @pix.image.url(:large), class: "img-responsive", alt: "Gordon Turibamwe" %> 
 			<% end %>
 		</div>
 	</div>
@@ -27,10 +28,10 @@
 		<!-- Edit home introduction starts -->
 		<div class="col-md-12">
 			<div class="row top10">
-				<div class="col-md-8 text-right"></div>
-				<div class="col-md-4 text-right">
+				<div class="col-md-4 text-left">
 					<%= intro(@intro) %>
 				</div>
+				<div class="col-md-8 text-right"> </div>
 			</div>
 			<!-- Edit home introduction ends -->
 			
@@ -49,9 +50,9 @@
 
 <!-- HOME BUTTONS STARTS -->
 	<div class="row top30">
-		<div class="col-md-12 text-right">
-			<%= buttons(@buttons) %>
-		</div>
+		<div class="col-md-4 text-left"> <%= buttons(@buttons) %> </div>
+		<div class="col-md-8 top30">  </div>
+
 		<% @buttons.each do |button| %>
 			<% if count_buttons(@buttons) == 3 %>
 				<div class="col-md-4 top5">

@@ -24,10 +24,8 @@
 
 <!-- WORK EXPERIENCE STARTS -->
 	<div class="row">
-		<div class="col-md-12">
-			<% if !@works.nil? %> <h2>Work Experience</h2> <% end %>
-			<%= link_to "Add Work Experience", new_about_user_work_path(@about_user), class: "label label-success" %>
-		</div>
+		<div class="col-md-12"> <% if !@works.nil? %> <h2>Work Experience</h2> <% end %> </div>
+		<div class="col-md-4">  <%= link_to "Add Work Experience", new_about_user_work_path(@about_user), class: "btn btn-default btn-sm btn-success" %> </div>
 			
 		<% if !@works.nil? %>
 			<% @works.each do |work| %>
@@ -61,10 +59,8 @@
 
 <!-- EDUCATION EXPERIENCE STARTS -->
 	<div class="row">
-		<div class="col-md-12">
-			<% if !@educations.nil? %> <h2>Education Experience</h2> <% end %>
-			<%= link_to "Add Education Experience", new_about_user_education_path(@about_user), class: "label label-success" %>
-		</div>
+		<div class="col-md-12"> <% if !@educations.nil? %> <h2>Education Experience</h2> <% end %> </div>
+		<div class="col-md-4">	<%= link_to "Add Education Experience", new_about_user_education_path(@about_user), class: "btn btn-default btn-sm btn-success" %> </div>
 
 		<% if !@educations.nil? %>
 			<% @educations.each do |education| %>
@@ -96,13 +92,12 @@
 
 <!-- SKILLS STARTS -->
 <div class="row">
-	<div class="col-md-12">
 		<% if !@skill.nil? %> 
-			<h2>Skills</h2>
+			<div class="col-md-12"> <h2>Skills</h2> </div>
 		<% else %>
-			<%= link_to "Add Skills", new_about_user_skill_path(@about_user), class: "label label-success" %>
+			<div class="col-md-4  top10"> <%= link_to "Add Skills", new_about_user_skill_path(@about_user), class: "btn btn-default btn-sm btn-success" %> </div>
 		<% end %>
-	</div>
+	
 
 <% if !@skill.nil? %>
 	<div class="col-md-12">
