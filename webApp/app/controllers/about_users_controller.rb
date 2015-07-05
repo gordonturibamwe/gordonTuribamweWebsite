@@ -1,5 +1,5 @@
 class AboutUsersController < ApplicationController
-  before_action :set_about_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_about_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @about_users = AboutUser.all

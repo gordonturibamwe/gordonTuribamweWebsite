@@ -40,6 +40,10 @@
 			</div>
 		</nav>
 		<!-- NAVIGATION ENDS -->
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, class: "alert alert-success" %>
+		<% end %>
+
 		<%= yield %>
 		<!-- FOOTER STARTS -->
 		<div class="row top10">

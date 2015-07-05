@@ -1,5 +1,5 @@
 class HomeUsersController < ApplicationController
-  before_action :set_home_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_home_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @home_users = HomeUser.all
